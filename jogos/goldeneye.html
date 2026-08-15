@@ -6,23 +6,43 @@
     <title>GoldenEye 007 - Kubo3D</title>
     <style>
         body { background: #0b0b0b; color: #fff; font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 20px; }
-        .game-header { margin-bottom: 20px; }
-        .cover { width: 140px; height: 190px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.7); object-fit: cover; }
-        h1 { margin: 10px 0 5px; font-size: 24px; }
-        #emulator-container { width: 100%; max-width: 640px; height: 480px; margin: 0 auto; background: #000; border: 2px solid #333; border-radius: 6px; }
-        .back-link { display: inline-block; margin-top: 20px; color: #00ffcc; text-decoration: none; font-size: 16px; }
+        .top-badge { background: #ff9900; color: #000; padding: 8px 25px; border-radius: 20px; font-weight: bold; display: inline-block; margin-bottom: 20px; font-size: 14px; }
+        .card { background: #18181b; width: 100%; max-width: 450px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.8); text-align: left; border: 1px solid #27272a; }
+        .cover-container { width: 100%; background: #000; text-align: center; padding: 15px 0; }
+        .cover { width: 220px; height: 310px; border-radius: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.9); object-fit: cover; }
+        .content { padding: 20px 25px; }
+        h1 { margin: 0 0 10px; font-size: 26px; color: #fbbf24; }
+        .info-tags { font-size: 13px; color: #a1a1aa; margin-bottom: 15px; }
+        p { font-size: 14px; color: #d4d4d8; line-height: 1.5; margin-bottom: 15px; }
+        ul { padding-left: 18px; margin: 0 0 20px; font-size: 13px; color: #a1a1aa; line-height: 1.6; }
+        .btn-play { display: block; background: #16a34a; color: #fff; text-align: center; padding: 14px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 16px; box-shadow: 0 4px 10px rgba(22,163,74,0.4); transition: background 0.2s; }
+        .btn-play:hover { background: #15803d; }
+        .back-link { display: block; margin-top: 25px; color: #38bdf8; text-decoration: none; font-size: 14px; text-align: center; }
     </style>
 </head>
 <body>
-    <div class="game-header">
-        <img src="../imagens/goldeneye-cover.jpg" alt="Capa GoldenEye 007" class="cover">
-        <h1>GoldenEye 007</h1>
-    </div>
 
-    <div id="emulator-container"></div>
+    <div class="top-badge">KUBO TOUCH</div>
+
+    <div class="card">
+        <div class="cover-container">
+            <img src="../imagens/goldeneye-cover.jpg" alt="Capa GoldenEye 007" class="cover">
+        </div>
+        <div class="content">
+            <h1>GoldenEye 007</h1>
+            <div class="info-tags">🎮 1-4 Jogadores &nbsp;&nbsp; 📅 1997 &nbsp;&nbsp; 📖 Rare / Nintendo</div>
+            <p>Entre no mundo de James Bond 007. Com base nos eventos do filme de sucesso, você deve infiltrar-se em instalações secretas, usar dispositivos de alta tecnologia do Q Branch e salvar o mundo da ameaça do satélite GoldenEye!</p>
+            <ul>
+                <li>🔥 <strong>Destaque:</strong> Considerado um dos jogos de tiro em primeira pessoa mais influentes da história dos videogames e do Nintendo 64.</li>
+                <li>🎯 <strong>Gênero:</strong> Tiro em Primeira Pessoa (FPS) / Ação / Espionagem</li>
+            </ul>
+            <a href="#" class="btn-play" onclick="alert('Aqui o emulador será iniciado!')">▶ JOGAR AGORA</a>
+        </div>
+    </div>
 
     <div>
         <a href="../index.html" class="back-link">← Retirar Cartucho / Voltar ao Menu</a>
     </div>
+
 </body>
 </html>
