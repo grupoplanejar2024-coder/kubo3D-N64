@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kubo3D - Nintendo 64 NFC</title>
+    <style>
+        body { background: #121212; color: #fff; font-family: Arial, sans-serif; text-align: center; padding-top: 60px; margin: 0; }
+        .container { background: #1e1e1e; padding: 40px; border-radius: 12px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        h1 { color: #00ffcc; margin-bottom: 10px; }
+        #status { font-size: 18px; color: #ccc; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>kubo3D - N64</h1>
+        <p>Sistema de Cartuchos NFC</p>
+        <div id="status">Aproxime o cartucho NFC do celular...</div>
+    </div>
+
+    <script>
+        const nfcMap = {
+            "UID_DA_SUA_TAG_DO_GOLDENEYE": "./jogos/goldeneye.html"
+        };
+
+        async function initNFC() {
+            if ("NDEFReader" in window) {
+                try {
+                    const ndef = new NDEFReader();
+                    await ndef.scan();
+                    document.getElementById('status').innerText = "NFC Ativo! Encoste o cartucho.";
+
+                    ndef.onreading = event => {
+                        const serialNumber = event.serialNumber; 
+                        if (nfcMap[serialNumber]) {
+                            window.location.href = nfcMap[serialNumber];
+                        } else {
+                            alert("Cartucho não reconhecido. UID: " + serialNumber);
+                        }
+                    };
+                } catch (error) {
+                    document.getElementById('status').innerText = "Erro ao ativar o NFC: " + error;
+                }
+            } else {
+                document.getElementById('status').innerText = "Web NFC não suportado neste navegador. Use o Chrome no Android.";
+            }
+        }
+
+        initNFC();
+    </script>
+</body>
+</html>
