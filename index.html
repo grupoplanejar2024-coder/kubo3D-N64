@@ -1,60 +1,70 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kubo3D - Nintendo 64 NFC</title>
+    <title>kubo3D - N64</title>
     <style>
-        body { background: #121212; color: #fff; font-family: Arial, sans-serif; text-align: center; padding-top: 60px; margin: 0; }
-        .container { background: #1e1e1e; padding: 40px; border-radius: 12px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-        h1 { color: #00ffcc; margin-bottom: 10px; }
-        #status { font-size: 18px; color: #ccc; margin-top: 20px; }
-        .btn-play { display: inline-block; margin-top: 25px; padding: 12px 24px; background: #28a745; color: #fff; text-decoration: none; font-weight: bold; border-radius: 8px; transition: background 0.3s; }
-        .btn-play:hover { background: #218838; }
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 { color: #00ffcc; margin-bottom: 5px; }
+        p.subtitle { color: #888; margin-top: 0; margin-bottom: 30px; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 900px;
+        }
+        .card {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            transition: transform 0.2s;
+            text-align: center;
+            padding-bottom: 15px;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .card img { width: 100%; height: 260px; object-fit: cover; }
+        .card h3 { margin: 10px 0 5px; font-size: 18px; }
+        .btn {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .btn:hover { background-color: #218838; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>kubo3D - N64</h1>
-        <p>Sistema de Cartuchos NFC</p>
-        <div id="status">Aproxime o cartucho NFC do celular...</div>
-        
-        <!-- Botão de acesso direto para testes e compatibilidade -->
-        <div>
-            <a href="jogos/goldeneye.html" class="btn-play">▶ ACESSAR GOLDENEYE 007</a>
+    <h1>kubo3D - N64</h1>
+    <p class="subtitle">Biblioteca de Cartuchos NFC</p>
+
+    <div class="grid">
+        <!-- Card do GoldenEye 007 -->
+        <div class="card">
+            <img src="imagens/goldeneye-cover.jpg" alt="Capa GoldenEye 007">
+            <h3>GoldenEye 007</h3>
+            <a href="jogos/goldeneye.html" class="btn">▶ JOGAR</a>
         </div>
+        
+        <!-- Adicione novos jogos aqui no futuro -->
     </div>
 
-    <script>
-        const nfcMap = {
-            "UID_DA_SUA_TAG_DO_GOLDENEYE": "./jogos/goldeneye.html"
-        };
-
-        async function initNFC() {
-            if ("NDEFReader" in window) {
-                try {
-                    const ndef = new NDEFReader();
-                    await ndef.scan();
-                    document.getElementById('status').innerText = "NFC Ativo! Encoste o cartucho.";
-                    
-                    ndef.onreading = event => {
-                        const serialNumber = event.serialNumber;
-                        if (nfcMap[serialNumber]) {
-                            window.location.href = nfcMap[serialNumber];
-                        } else {
-                            alert("Cartucho não reconhecido. UID: " + serialNumber);
-                        }
-                    };
-                } catch (error) {
-                    document.getElementById('status').innerText = "Erro ao ativar o NFC: " + error;
-                }
-            } else {
-                document.getElementById('status').innerText = "Web NFC não suportado neste navegador. Use o botão abaixo:";
-            }
-        }
-
-        initNFC();
-    </script>
 </body>
 </html>
