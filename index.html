@@ -9,13 +9,21 @@
         .container { background: #1e1e1e; padding: 40px; border-radius: 12px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
         h1 { color: #00ffcc; margin-bottom: 10px; }
         #status { font-size: 18px; color: #ccc; margin-top: 20px; }
+        .btn-play { display: inline-block; margin-top: 25px; padding: 12px 24px; background: #28a745; color: #fff; text-decoration: none; font-weight: bold; border-radius: 8px; transition: background 0.3s; }
+        .btn-play:hover { background: #218838; }
     </style>
 </head>
 <body>
+
     <div class="container">
         <h1>kubo3D - N64</h1>
         <p>Sistema de Cartuchos NFC</p>
         <div id="status">Aproxime o cartucho NFC do celular...</div>
+        
+        <!-- Botão de acesso direto para testes e compatibilidade -->
+        <div>
+            <a href="jogos/goldeneye.html" class="btn-play">▶ ACESSAR GOLDENEYE 007</a>
+        </div>
     </div>
 
     <script>
@@ -29,9 +37,9 @@
                     const ndef = new NDEFReader();
                     await ndef.scan();
                     document.getElementById('status').innerText = "NFC Ativo! Encoste o cartucho.";
-
+                    
                     ndef.onreading = event => {
-                        const serialNumber = event.serialNumber; 
+                        const serialNumber = event.serialNumber;
                         if (nfcMap[serialNumber]) {
                             window.location.href = nfcMap[serialNumber];
                         } else {
@@ -42,7 +50,7 @@
                     document.getElementById('status').innerText = "Erro ao ativar o NFC: " + error;
                 }
             } else {
-                document.getElementById('status').innerText = "Web NFC não suportado neste navegador. Use o Chrome no Android.";
+                document.getElementById('status').innerText = "Web NFC não suportado neste navegador. Use o botão abaixo:";
             }
         }
 
