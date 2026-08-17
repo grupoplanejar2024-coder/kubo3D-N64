@@ -67,13 +67,15 @@
 
             window.EJS_player = "#game";
             window.EJS_core = "mupen64plus";
+            
+            // ADICIONE ESTA LINHA ABAIXO PARA CORRIGIR O ERRO DO NÚCLEO:
+            window.EJS_coreUrl = "https://cdn.emulatorjs.org/stable/data/cores/mupen64plus.js";
+
             window.EJS_gameName = "GoldenEye 007";
             window.EJS_color = "#ff9800";
             window.EJS_startOnLoaded = true;
             window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
-            
-            // Usando o link raw padrão otimizado do GitHub com bypass de requisição
-            window.EJS_gameUrl = "https://raw.githubusercontent.com/grupoplanejar2024-coder/kubo3D-N64/main/roms/goldeneye-007.z64";
+            window.EJS_gameUrl = "https://cdn.jsdelivr.net/gh/grupoplanejar2024-coder/kubo3D-N64@main/roms/goldeneye-007.z64";
             
             let script = document.createElement("script");
             script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
