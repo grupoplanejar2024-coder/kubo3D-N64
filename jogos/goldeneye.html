@@ -60,24 +60,26 @@
             <div id="game"></div>
         </div>
     </div>
-
-    <script>
+<script>
         function startEmulator() {
             document.getElementById('game-card').style.display = 'none';
             document.getElementById('game-container').style.display = 'block';
 
             window.EJS_player = "#game";
-            window.EJS_core = "n64"; // Núcleo simplificado e estável para N64
+            window.EJS_core = "n64";
             window.EJS_gameName = "GoldenEye 007";
             window.EJS_color = "#ff9800";
             window.EJS_startOnLoaded = true;
             window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
-            window.EJS_gameUrl = "https://raw.githubusercontent.com/grupoplanejar2024-coder/kubo3D-N64/main/roms/goldeneye.z64";
+            
+            // Substitua esta linha por um link hospedado em nuvem que permita CORS (ex: Archive.org link direto ou CDN própria)
+            window.EJS_gameUrl = "https://ia601400.us.archive.org/32/items/goldeneye-007-usa_202305/GoldenEye%20007%20%28USA%29.z64";
             
             let script = document.createElement("script");
             script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
             document.body.appendChild(script);
         }
     </script>
+   
 </body>
 </html>
