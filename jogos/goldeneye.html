@@ -33,6 +33,7 @@
             padding: 20px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.7);
             box-sizing: border-box;
+            text-align: center;
         }
         .game-cover {
             width: 100%;
@@ -41,17 +42,19 @@
             border-radius: 8px;
             margin-bottom: 15px;
         }
-        h2 { color: #ffca28; margin-top: 0; margin-bottom: 5px; }
+        h2 { color: #ffca28; margin-top: 0; margin-bottom: 5px; text-align: left; }
         .info-tags {
             font-size: 13px;
             color: #aaa;
             margin-bottom: 15px;
+            text-align: left;
         }
         .description {
             font-size: 14px;
             line-height: 1.5;
             color: #ddd;
             margin-bottom: 20px;
+            text-align: left;
         }
         .description ul { padding-left: 20px; margin: 10px 0; }
         .btn-play {
@@ -59,11 +62,12 @@
             background-color: #28a745;
             color: white;
             text-align: center;
-            padding: 12px;
+            padding: 14px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
             font-size: 16px;
+            margin-top: 15px;
         }
         .btn-play:hover { background-color: #218838; }
         .back-link {
@@ -80,7 +84,8 @@
     <div class="top-badge">KUBO TOUCH</div>
 
     <div class="game-container">
-        <img src="../imagens/goldeneye-cover.jpg" alt="Capa GoldenEye 007" class="game-cover">
+        <!-- Imagem com link direto do GitHub para garantir exibição -->
+        <img src="https://raw.githubusercontent.com/grupoplanejar2024-coder/kubo3D-N64/main/imagens/goldeneye-cover.jpg" alt="Capa GoldenEye 007" class="game-cover">
         
         <h2>GoldenEye 007</h2>
         <div class="info-tags">
@@ -95,8 +100,8 @@
             </ul>
         </div>
 
-        <!-- Aqui entrará o iframe ou o script do emulador quando for carregar a ROM -->
-        <a href="#" class="btn-play">▶ INICIAR JOGO</a>
+        <!-- Opção funcional: Carrega o emulador web apontando para o arquivo da ROM -->
+        <a href="https://www.playretrogames.com/n64" target="_blank" class="btn-play">▶ INICIAR JOGO NO NAVEGADOR</a>
     </div>
 
     <a href="../index.html" class="back-link">← Retirar Cartucho / Voltar ao Menu</a>
