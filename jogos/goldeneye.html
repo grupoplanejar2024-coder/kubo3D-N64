@@ -1,39 +1,152 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>GoldenEye 007 - Kubo Touch</title>
+
     <style>
-        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: #121212; color: #fff; font-family: Arial, sans-serif; }
-        header { text-align: center; padding: 15px; background: #1e1e1e; }
-        .badge { background: #ff9800; color: #000; padding: 4px 12px; border-radius: 20px; font-weight: bold; font-size: 14px; }
-        #game-card { max-width: 500px; margin: 20px auto; background: #1e1e1e; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
-        .cover-container { width: 100%; height: 250px; background-color: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .cover-container img { width: 100%; height: 100%; object-fit: cover; }
-        .content { padding: 20px; }
-        h1 { margin: 0 0 10px 0; font-size: 24px; color: #ffca28; }
-        .meta-info { display: flex; gap: 10px; margin-bottom: 15px; font-size: 13px; color: #aaa; }
-        .description { font-size: 14px; line-height: 1.5; color: #ddd; margin-bottom: 15px; }
-        .details { font-size: 13px; color: #bbb; margin-bottom: 20px; }
-        .details ul { padding-left: 20px; margin: 0; }
-        .btn-play { display: block; width: 100%; padding: 12px; background: #27ae60; color: #fff; border: none; border-radius: 6px; font-weight: bold; font-size: 16px; cursor: pointer; text-align: center; text-decoration: none; }
-        .btn-play:hover { background: #219150; }
-        #game-container { display: none; width: 100%; height: 100vh; }
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #121212;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            text-align: center;
+            padding: 15px;
+            background: #1e1e1e;
+        }
+
+        .badge {
+            background: #ff9800;
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        #game-card {
+            max-width: 500px;
+            margin: 20px auto;
+            background: #1e1e1e;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .cover-container {
+            width: 100%;
+            height: 250px;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .cover-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+            color: #ffca28;
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            color: #aaa;
+            flex-wrap: wrap;
+        }
+
+        .description {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        .details {
+            font-size: 13px;
+            color: #bbb;
+            margin-bottom: 20px;
+        }
+
+        .details ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .btn-play {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #27ae60;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn-play:hover {
+            background: #219150;
+        }
+
+        #game-container {
+            display: none;
+            width: 100%;
+            height: 100vh;
+            background: #000;
+        }
+
+        #game {
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
+
 <body>
 
     <header>
         <span class="badge">KUBO TOUCH</span>
     </header>
 
-    <div class="card" id="game-card">
+    <!-- CARD DO JOGO -->
+    <div id="game-card">
+
         <div class="cover-container">
-            <img src="https://raw.githubusercontent.com/grupoplanejar2024-coder/kubo3D-N64/main/imagens/goldeneye-cover.jpg" alt="Capa GoldenEye 007">
+            <img
+                src="https://raw.githubusercontent.com/grupoplanejar2024-coder/kubo3D-N64/main/imagens/goldeneye-cover.jpg"
+                alt="Capa GoldenEye 007">
         </div>
+
         <div class="content">
+
             <h1>GoldenEye 007</h1>
+
             <div class="meta-info">
                 <span>🎮 1-4 Jogadores</span>
                 <span>📅 1997</span>
@@ -41,53 +154,110 @@
             </div>
 
             <p class="description">
-                Entre no mundo de James Bond 007. Infiltre-se em instalações secretas, use dispositivos de alta tecnologia e salve o mundo da ameaça do satélite GoldenEye!
+                Entre no mundo de James Bond 007. Infiltre-se em instalações secretas,
+                use dispositivos de alta tecnologia e salve o mundo da ameaça do satélite GoldenEye!
             </p>
 
             <div class="details">
                 <ul>
-                    <li><strong>✍️ Curiosidade:</strong> Um dos jogos de tiro em primeira pessoa mais influentes e revolucionários da história do Nintendo 64.</li>
-                    <li><strong>🎯 Gênero:</strong> Tiro em Primeira Pessoa (FPS) / Ação</li>
+                    <li>
+                        <strong>✍️ Curiosidade:</strong>
+                        Um dos jogos de tiro em primeira pessoa mais influentes e revolucionários
+                        da história do Nintendo 64.
+                    </li>
+
+                    <li>
+                        <strong>🎯 Gênero:</strong>
+                        Tiro em Primeira Pessoa (FPS) / Ação
+                    </li>
                 </ul>
             </div>
 
-            <button class="btn-play" onclick="startEmulator()">► JOGAR AGORA</button>
+            <button class="btn-play" onclick="startEmulator()">
+                ► JOGAR AGORA
+            </button>
+
         </div>
     </div>
 
+
+    <!-- EMULADOR -->
     <div id="game-container">
-        <div style="width:100%;height:100%;max-width:100%">
+
+        <div style="width:100%; height:100%; max-width:100%;">
             <div id="game"></div>
         </div>
+
     </div>
-<script>
+
+
+    <!-- CONFIGURAÇÃO DO EMULATORJS -->
+    <script>
+
         function startEmulator() {
-            document.getElementById('game-card').style.display = 'none';
-            document.getElementById('game-container').style.display = 'block';
+
+            // Esconde o card
+            document.getElementById("game-card").style.display = "none";
+
+            // Mostra o emulador
+            document.getElementById("game-container").style.display = "block";
+
+
+            /*
+             * CONFIGURAÇÃO DO EMULATORJS
+             */
 
             window.EJS_player = "#game";
-            window.EJS_core = "mupen64plus";
-            
-            // ADICIONE ESTA LINHA ABAIXO PARA CORRIGIR O ERRO DO NÚCLEO:
-            window.EJS_coreUrl = "https://cdn.emulatorjs.org/stable/data/cores/mupen64plus.js";
 
+            // Nintendo 64
+            // "n64" utiliza o core mupen64plus_next
+            window.EJS_core = "n64";
+
+            // Nome do jogo
             window.EJS_gameName = "GoldenEye 007";
+
+            // Cor do EmulatorJS
             window.EJS_color = "#ff9800";
+
+            // Inicia automaticamente quando o core carregar
             window.EJS_startOnLoaded = true;
-            window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
-            window.EJS_gameUrl = "https://cdn.jsdelivr.net/gh/grupoplanejar2024-coder/kubo3D-N64@main/roms/goldeneye-007.z64";
-            
-            let script = document.createElement("script");
-            script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
+
+            // Diretório oficial do EmulatorJS
+            window.EJS_pathtodata =
+                "https://cdn.emulatorjs.org/stable/data/";
+
+            /*
+             * ROM
+             *
+             * Use aqui o caminho da sua ROM legalmente hospedada.
+             */
+            window.EJS_gameUrl =
+                "https://cdn.jsdelivr.net/gh/grupoplanejar2024-coder/kubo3D-N64@main/roms/goldeneye-007.z64";
+
+
+            /*
+             * CARREGA O EMULATORJS
+             */
+
+            const script = document.createElement("script");
+
+            script.src =
+                "https://cdn.emulatorjs.org/stable/data/loader.js";
+
+            script.onload = function () {
+                console.log("EmulatorJS carregado com sucesso.");
+            };
+
+            script.onerror = function () {
+                console.error("Erro ao carregar o EmulatorJS.");
+            };
+
             document.body.appendChild(script);
+
         }
+
     </script>
 
-            let script = document.createElement("script");
-            script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
-            document.body.appendChild(script);
-        }
-    </script>
-   
 </body>
 </html>
+```
