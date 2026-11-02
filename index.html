@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="theme-color" content="#000000">
-  <title>GoldenEye 007 - Kubo Touch</title>
+  <title>GoldenEye 007 - Controles Otimizados</title>
 
   <style>
     * {
@@ -38,7 +38,6 @@
     }
 
     #intro img {
-      display: block;
       width: 100%;
       max-height: 35vh;
       object-fit: contain;
@@ -48,7 +47,7 @@
 
     h1 {
       color: #ffca28;
-      font-size: 26px;
+      font-size: 24px;
       margin: 0 0 8px 0;
     }
 
@@ -70,12 +69,6 @@
       min-height: 52px;
       cursor: pointer;
       touch-action: manipulation;
-      box-shadow: 0 4px 12px rgba(21, 153, 87, 0.4);
-    }
-
-    button:active {
-      transform: scale(0.98);
-      background: #117d47;
     }
 
     #game-container {
@@ -94,12 +87,9 @@
       height: 100%;
     }
 
-    #game canvas {
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: contain;
-      image-rendering: pixelated;
-      image-rendering: crisp-edges;
+    /* Otimizações nos botões virtuais do emulador */
+    .ejs_gamepad {
+      opacity: 0.75 !important; /* Aumenta a visibilidade */
     }
   </style>
 </head>
@@ -108,13 +98,10 @@
   <main id="intro">
     <img
       src="https://raw.githubusercontent.com/grupoplanejar2024-coder/kubo3D-N64/main/imagens/goldeneye-cover.jpg"
-      alt="GoldenEye 007"
-      width="300"
-      height="400"
-      fetchpriority="high">
+      alt="GoldenEye 007">
 
     <h1>GoldenEye 007</h1>
-    <p>Jogue GoldenEye 007 no seu celular com controle otimizado.</p>
+    <p>Controles de N64 reajustados para melhor precisão em telas touch.</p>
     <button id="play">▶ JOGAR AGORA</button>
   </main>
 
@@ -137,24 +124,27 @@
       document.getElementById("intro").style.display = "none";
       document.getElementById("game-container").style.display = "block";
 
-      // Configurações avançadas de otimização para EmulatorJS
       window.EJS_player = "#game";
       window.EJS_core = "n64";
       window.EJS_gameName = "GoldenEye 007";
       window.EJS_color = "#ff9800";
 
-      // Desativa filtro de imagem suave para economizar GPU e dar mais FPS
+      // Performance e renderização
       window.EJS_smooth = false;
-      
-      // Otimização de CPU/Threads em navegadores móveis
       window.EJS_threads = false;
 
-      // Execução e controle mobile
+      // Layout touch responsivo
       window.EJS_startOnLoaded = true;
       window.EJS_fullscreenOnLoaded = false;
       window.EJS_browserMode = "mobile";
       window.EJS_controlScheme = "n64";
       window.EJS_virtualGamepad = true;
+
+      // Mapeamento otimizado de botões virtuais
+      window.EJS_settings = {
+        virtualGamepadTransparency: 0.7,
+        analogueSensibility: 1.2 // Melhora a resposta da mira no toque
+      };
 
       window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
       window.EJS_gameUrl = "https://cdn.jsdelivr.net/gh/grupoplanejar2024-coder/kubo3D-N64@main/roms/goldeneye-007.z64";
@@ -164,7 +154,7 @@
       script.async = true;
 
       script.onerror = () => {
-        alert("Não foi possível carregar o emulador. Verifique sua conexão.");
+        alert("Erro ao carregar o emulador.");
       };
 
       document.body.appendChild(script);
@@ -172,4 +162,3 @@
   </script>
 </body>
 </html>
-
